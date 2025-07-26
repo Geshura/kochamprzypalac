@@ -1,78 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Funkcja przeliczająca składniki na podstawie nowej wagi
-  function updateIngredients(ingredientsList, newWeight) {
-    const baseWeight = Number(ingredientsList.dataset.baseWeight);
-    if (!baseWeight || baseWeight === 0) return;
+  // --- Slider obrazów ---
+  const sliders = document.querySelectorAll('.image-slider');
 
-    const factor = newWeight / baseWeight;
+  sliders.forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    let currentIndex = 0;
 
-    ingredientsList.querySelectorAll('li').forEach(li => {
-      const baseAmount = Number(li.dataset.amount);
-      const unit = li.dataset.unit || '';
-      if (isNaN(baseAmount)) return;
+    setInterval(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 3500);
+  });
 
-      let adjustedAmount = baseAmount * factor;
-
-      // Zaokrąglanie liczb - jeśli to liczba całkowita, nie pokazuj miejsc po przecinku
-      if (adjustedAmount % 1 === 0) {
-        adjustedAmount = adjustedAmount.toFixed(0);
-      } else {
-        adjustedAmount = adjustedAmount.toFixed(2);
-      }
-
-      // Przykładowy tekst do wyświetlenia:
-      // Nazwa składnika jest już w li, więc zamieniamy tylko ilość
-      // załóżmy, że w li jest np.: "Makaron – 200 g"
-      // Więc rozbijamy tekst po " – " i zmieniamy liczbę + jednostkę
-
-      // Możemy zrobić prostsze podejście: pokazujemy tylko "Ilość jednostka"
-      // ale by zachować nazwę, zrobimy regex.
-
-      // Załóżmy tekst: "Makaron – 200 g"
-      // Zamienimy część "200 g" na "adjustedAmount unit"
-
-      const originalText = li.textContent;
-
-      // RegEx do znalezienia ilości i jednostki na końcu tekstu
-      const replacedText = originalText.replace(/[\d.,]+ ?\w*$/g, `${adjustedAmount} ${unit}`.trim());
-
-      li.textContent = replacedText;
-    });
-  }
-
-  // Obsługa inputów wagi
+  // --- Regulacja wag składników ---
   const weightInputs = document.querySelectorAll('.weight-input');
+
   weightInputs.forEach(input => {
-    const ingredientsList = input.closest('.ingredients-wrapper').querySelector('.ingredients-list');
-
     input.addEventListener('input', () => {
-      let val = Number(input.value);
-      if (isNaN(val) || val <= 0) {
-        val = Number(ingredientsList.dataset.baseWeight);
-        input.value = val;
-      }
-      updateIngredients(ingredientsList, val);
+      let newWeight = parseFloat(input.value);
+      if (isNaN(newWeight) || newWeight <= 0) return;
+
+      const wrapper = input.closest('.ingredients-wrapper');
+      const list = wrapper.querySelector('.ingredients-list');
+      const baseWeight = parseFloat(list.dataset.baseWeight);
+
+      // Współczynnik skalowania
+      const scale = newWeight / baseWeight;
+
+      list.querySelectorAll('li').forEach(li => {
+        const originalAmount = li.dataset.amount;
+
+        // Jeśli ilość jest liczbą, przelicz ją
+        if (!isNaN(originalAmount)) {
+          const amountNum = parseFloat(originalAmount);
+          const unit = li.dataset.unit;
+          const scaledAmount = Math.round(amountNum * scale * 10) / 10; // 1 miejsce po przecinku
+          li.textContent = `${li.textContent.split('–')[0].trim()} – ${scaledAmount} ${unit}`.trim();
+        }
+      });
     });
-
-    // Inicjalne wywołanie, by upewnić się że składniki są na start poprawne
-    updateIngredients(ingredientsList, Number(input.value));
   });
 
-  // Scroll to top
+  // --- Scroll to top ---
   const scrollBtn = document.getElementById('scrollToTop');
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
 
-  // Opcjonalnie: pokaż przycisk tylko gdy przewinięto trochę
   window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-      scrollBtn.style.display = 'block';
+      scrollBtn.style.display = 'flex';
     } else {
       scrollBtn.style.display = 'none';
     }
   });
 
-  // Ukryj przycisk na start
-  scrollBtn.style.display = 'none';
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
 });
