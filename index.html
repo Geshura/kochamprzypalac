@@ -3,93 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Przepisy kulinarne - Dark Mode</title>
-  
-  <!-- Google Fonts -->
+  <title>Przepisy kulinarne</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet" />
-  
   <link rel="stylesheet" href="style/styl.css" />
 </head>
 <body>
-
   <header>
     <nav id="navbar">
       <ul>
-        <li><a href="#przepis1">Makaron z pesto</a></li>
-        <li><a href="#przepis2">Sałatka grecka</a></li>
-        <li><a href="#przepis3">Zupa krem z dyni</a></li>
+        <li><a href="#recipe1">Spaghetti Carbonara</a></li>
+        <li><a href="#recipe2">Sałatka grecka</a></li>
+        <li><a href="#recipe3">Placki ziemniaczane</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <!-- Przepis 1 -->
-    <section id="przepis1" class="recipe">
-      <h2>Makaron z pesto</h2>
+    <section class="recipe" id="recipe1">
+      <h2>Spaghetti Carbonara</h2>
+
       <div class="ingredients-wrapper">
-        <h3>Składniki:</h3>
         <ul class="ingredients-list" data-base-weight="500">
-          <li data-amount="200" data-unit="g">Makaron – 200 g</li>
-          <li data-amount="100" data-unit="g">Bazylia świeża – 100 g</li>
+          <li data-amount="200" data-unit="g">Makaron spaghetti – 200 g</li>
+          <li data-amount="100" data-unit="g">Boczek wędzony – 100 g</li>
+          <li data-amount="2" data-unit="szt">Jajka – 2 szt</li>
           <li data-amount="50" data-unit="g">Parmezan – 50 g</li>
-          <li data-amount="30" data-unit="g">Orzeszki piniowe – 30 g</li>
-          <li data-amount="50" data-unit="ml">Oliwa z oliwek – 50 ml</li>
-          <li data-amount="2" data-unit="ząbki">Czosnek – 2 ząbki</li>
+          <li data-amount="1" data-unit="ząb">Czosnek – 1 ząb</li>
+          <li data-amount="do smaku" data-unit="">Sól i pieprz – do smaku</li>
         </ul>
-        <label for="weight-input1">Waga docelowa (g): </label>
-        <input type="number" id="weight-input1" class="weight-input" value="500" min="1" />
+        <label for="weight1">Waga (g): </label>
+        <input type="number" id="weight1" class="weight-input" value="500" min="1" />
       </div>
+
+      <div class="image-slider">
+        <img src="images/carbonara1.jpg" alt="Spaghetti Carbonara 1" class="active" />
+        <img src="images/carbonara2.jpg" alt="Spaghetti Carbonara 2" />
+        <img src="images/carbonara3.jpg" alt="Spaghetti Carbonara 3" />
+      </div>
+
       <div class="instructions">
-        <h3>Instrukcje:</h3>
-        <p>Ugotuj makaron według instrukcji na opakowaniu. Zmiksuj bazylię, parmezan, orzeszki piniowe, oliwę i czosnek na pesto. Wymieszaj z makaronem i podawaj.</p>
+        <p>Ugotuj makaron al dente. Podsmaż boczek z czosnkiem. W misce wymieszaj jajka z parmezanem. Połącz składniki i dopraw solą oraz pieprzem.</p>
       </div>
     </section>
 
     <!-- Przepis 2 -->
-    <section id="przepis2" class="recipe">
+    <section class="recipe" id="recipe2">
       <h2>Sałatka grecka</h2>
+
       <div class="ingredients-wrapper">
-        <h3>Składniki:</h3>
         <ul class="ingredients-list" data-base-weight="500">
           <li data-amount="200" data-unit="g">Pomidor – 200 g</li>
           <li data-amount="150" data-unit="g">Ogórek – 150 g</li>
-          <li data-amount="100" data-unit="g">Feta – 100 g</li>
+          <li data-amount="100" data-unit="g">Ser feta – 100 g</li>
           <li data-amount="50" data-unit="g">Czerwona cebula – 50 g</li>
-          <li data-amount="20" data-unit="ml">Oliwa z oliwek – 20 ml</li>
-          <li data-amount="10" data-unit="g">Oliwki czarne – 10 g</li>
+          <li data-amount="30" data-unit="ml">Oliwa z oliwek – 30 ml</li>
+          <li data-amount="do smaku" data-unit="">Sól, pieprz, oregano – do smaku</li>
         </ul>
-        <label for="weight-input2">Waga docelowa (g): </label>
-        <input type="number" id="weight-input2" class="weight-input" value="500" min="1" />
+        <label for="weight2">Waga (g): </label>
+        <input type="number" id="weight2" class="weight-input" value="500" min="1" />
       </div>
+
+      <div class="image-slider">
+        <img src="images/salatka1.jpg" alt="Sałatka grecka 1" class="active" />
+        <img src="images/salatka2.jpg" alt="Sałatka grecka 2" />
+      </div>
+
       <div class="instructions">
-        <h3>Instrukcje:</h3>
-        <p>Pokrój warzywa i fetę, wymieszaj z oliwą i oliwkami. Podawaj schłodzone.</p>
+        <p>Pokrój warzywa i fetę. Połącz w misce. Polej oliwą, dopraw solą, pieprzem i oregano.</p>
       </div>
     </section>
 
     <!-- Przepis 3 -->
-    <section id="przepis3" class="recipe">
-      <h2>Zupa krem z dyni</h2>
+    <section class="recipe" id="recipe3">
+      <h2>Placki ziemniaczane</h2>
+
       <div class="ingredients-wrapper">
-        <h3>Składniki:</h3>
         <ul class="ingredients-list" data-base-weight="500">
-          <li data-amount="400" data-unit="g">Dynia – 400 g</li>
-          <li data-amount="100" data-unit="ml">Bulion warzywny – 100 ml</li>
-          <li data-amount="50" data-unit="ml">Śmietanka 30% – 50 ml</li>
-          <li data-amount="10" data-unit="g">Masło – 10 g</li>
-          <li data-amount="1" data-unit="szczypta">Sól i pieprz – do smaku</li>
+          <li data-amount="400" data-unit="g">Ziemniaki – 400 g</li>
+          <li data-amount="1" data-unit="szt">Jajko – 1 szt</li>
+          <li data-amount="50" data-unit="g">Mąka – 50 g</li>
+          <li data-amount="do smaku" data-unit="">Sól i pieprz – do smaku</li>
+          <li data-amount="do smażenia" data-unit="">Olej – do smażenia</li>
         </ul>
-        <label for="weight-input3">Waga docelowa (g): </label>
-        <input type="number" id="weight-input3" class="weight-input" value="500" min="1" />
+        <label for="weight3">Waga (g): </label>
+        <input type="number" id="weight3" class="weight-input" value="500" min="1" />
       </div>
+
+      <div class="image-slider">
+        <img src="images/placki1.jpg" alt="Placki ziemniaczane 1" class="active" />
+      </div>
+
       <div class="instructions">
-        <h3>Instrukcje:</h3>
-        <p>Podsmaż dynię na maśle, zalej bulionem i gotuj do miękkości. Zblenduj, dodaj śmietankę, dopraw solą i pieprzem.</p>
+        <p>Zetrzyj ziemniaki, wymieszaj z jajkiem, mąką i przyprawami. Smaż na złoty kolor z obu stron.</p>
       </div>
     </section>
   </main>
 
-  <button id="scrollToTop" class="scroll-to-top" title="Do góry">⬆</button>
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Przewiń na górę">↑</button>
 
   <script src="js/script.js"></script>
 </body>
