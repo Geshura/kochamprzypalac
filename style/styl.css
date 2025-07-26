@@ -1,97 +1,87 @@
-/* --- Import fontów Google --- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
-
-/* --- Reset i podstawy --- */
+/* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #121212;
   color: #e0e0e0;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 60px; /* miejsce na navbar */
+  min-height: 100vh;
+  padding-bottom: 60px; /* dla scroll btn */
 }
 
-/* --- Nawigacja --- */
-#navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+header {
   background-color: #1e1e1e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
-  z-index: 1000;
-  padding: 10px 20px;
-  font-family: 'Montserrat', sans-serif;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #333;
 }
 
-#navbar ul {
-  list-style: none;
+.recipe-nav {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  list-style: none;
+  gap: 25px;
 }
 
-#navbar ul li a {
-  color: #bb86fc;
+.recipe-nav a {
+  color: #a1c9f1;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
-#navbar ul li a:hover,
-#navbar ul li a:focus {
-  color: #3700b3;
+.recipe-nav a:hover,
+.recipe-nav a:focus {
+  color: #63a4ff;
   outline: none;
 }
 
-/* --- Przepisy --- */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
 .recipe {
-  max-width: 800px;
-  background-color: #1e1e1e;
-  margin: 40px auto;
-  padding: 30px 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #3700b3aa;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 30px;
 }
 
 .recipe h2 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #bb86fc;
+  margin-bottom: 10px;
+  font-size: 1.9rem;
+  color: #63a4ff;
+  text-align: center;
 }
 
-/* --- Slider obrazów --- */
+/* Slider */
 .image-slider {
   position: relative;
-  width: 100%;
+  max-width: 100%;
   height: 250px;
-  margin-bottom: 25px;
-  border-radius: 10px;
+  margin: 0 auto 20px;
   overflow: hidden;
-  box-shadow: 0 0 15px #6200eeaa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #222;
 }
 
 .image-slider img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 250px;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
-  border-radius: 10px;
-  user-select: none;
+  transition: opacity 0.7s ease-in-out;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
 }
 
 .image-slider img.active {
@@ -99,128 +89,101 @@ body {
   position: relative;
 }
 
-/* --- Składniki --- */
+/* Ingredients */
 .ingredients-wrapper {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .ingredients-wrapper label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #bb86fc;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
+  color: #a1c9f1;
 }
 
-.ingredients-list {
-  background-color: #2a2a2a;
-  border-radius: 10px;
-  padding: 15px 20px;
-  list-style: none;
-  box-shadow: inset 0 0 10px #4a148c;
-  color: #ddd;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Przechowujemy oryginalne wartości składników w data-atributach na li */
-
-/* --- Pole wagi --- */
 .weight-input {
-  margin-top: 12px;
-  background-color: #1e1e1e;
-  border: 2px solid #bb86fc;
-  border-radius: 6px;
-  padding: 8px 12px;
   width: 100px;
-  color: #e0e0e0;
+  padding: 6px 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #222;
+  color: #eee;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  margin-bottom: 12px;
 }
 
 .weight-input:focus {
   outline: none;
-  border-color: #3700b3;
-  background-color: #2a2a2a;
+  border-color: #63a4ff;
+  box-shadow: 0 0 6px #63a4ff;
 }
 
-/* --- Instrukcje --- */
-.instructions {
-  font-size: 1rem;
-  color: #ccc;
+.ingredients-list {
+  list-style-type: none;
   background-color: #222;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: inset 0 0 10px #3700b3aa;
-  white-space: pre-wrap;
-  line-height: 1.5;
-  font-family: 'Roboto', sans-serif;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px #000;
+  color: #cce0ff;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-/* --- Scroll to top button --- */
-.scroll-to-top {
+.ingredients-list li {
+  margin-bottom: 8px;
+}
+
+/* Instructions */
+.instructions {
+  background-color: #1c1c1c;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px #111;
+  font-size: 1rem;
+  color: #ddd;
+  white-space: pre-wrap;
+}
+
+/* Scroll to top button */
+#scrollTopBtn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 44px;
-  height: 44px;
-  background-color: #6200ee;
+  bottom: 25px;
+  right: 25px;
+  background-color: #63a4ff;
+  color: #121212;
+  border: none;
   border-radius: 50%;
-  box-shadow: 0 4px 12px #3700b3bb;
-  display: none;
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(99, 164, 255, 0.7);
+  display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  user-select: none;
-  z-index: 1100;
-  border: none;
+  transition: background-color 0.3s;
+  z-index: 200;
 }
 
-.scroll-to-top:hover,
-.scroll-to-top:focus {
-  background-color: #3700b3;
-  transform: scale(1.1);
+#scrollTopBtn:hover,
+#scrollTopBtn:focus {
+  background-color: #85b9ff;
   outline: none;
 }
 
-/* Strzałka w przycisku */
-.scroll-to-top svg {
-  width: 24px;
-  height: 24px;
-  display: block;
-  fill: #e0e0e0;
-  margin: 0;
-  padding: 0;
-}
-
-/* --- Responsywność --- */
-@media (max-width: 768px) {
-  #navbar ul {
+/* Responsive */
+@media (max-width: 600px) {
+  .recipe-nav {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    padding: 10px 0;
   }
-
-  .recipe {
-    margin: 25px 15px;
-    padding: 25px 15px;
-  }
-
-  .weight-input {
-    width: 80px;
-  }
-
+  
   .image-slider {
     height: 180px;
   }
-}
 
-@media (max-width: 400px) {
-  .weight-input {
-    width: 70px;
+  .ingredients-list {
     font-size: 0.9rem;
   }
 }
