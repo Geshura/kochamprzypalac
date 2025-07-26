@@ -1,157 +1,170 @@
-/* Reset i podstawy */
+/* Reset i bazowe style */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #fdf7f0; /* jasny kremowy */
-  color: #3a2e2e; /* ciemny brąz */
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
-  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 1rem;
 }
 
 header {
-  background: linear-gradient(90deg, #b35432, #d18a56); /* pomarańczowo-brązowy gradient */
-  padding: 15px 20px;
+  background-color: #1b263b;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-#menu ul {
+#recipe-nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
   justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-#menu ul li a {
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
+#recipe-nav a {
+  color: #f0f0f0;
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.5rem;
+  transition: color 0.3s ease;
 }
 
-#menu ul li a:hover,
-#menu ul li a.active {
-  background-color: #7a3c1d;
+#recipe-nav a:hover,
+#recipe-nav a:focus {
+  color: #ffd166;
+  outline: none;
 }
 
-/* Główna treść */
-
-main#content {
+main {
   max-width: 900px;
-  margin: 30px auto 50px;
-  padding: 0 15px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
-
-/* Przepis */
 
 .recipe {
-  margin-bottom: 60px;
-  border: 2px solid #d18a56;
-  border-radius: 12px;
-  padding: 20px;
-  background: #fff6e8;
-  box-shadow: 0 4px 8px rgba(209,138,86,0.25);
+  margin-bottom: 3rem;
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(27, 38, 59, 0.1);
 }
 
 .recipe h2 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #a7461c;
-  border-bottom: 2px solid #d18a56;
-  padding-bottom: 8px;
+  color: #1b263b;
+  margin-bottom: 0.7rem;
+  border-bottom: 2px solid #ffd166;
+  padding-bottom: 0.3rem;
 }
 
-/* Składniki */
+.ingredients-container h3,
+.instructions h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #0f4c75;
+  margin-bottom: 0.5rem;
+}
 
 .ingredients {
-  margin-top: 10px;
-  padding-left: 20px;
-  font-size: 1rem;
-  color: #5c3a21;
+  list-style: none;
+  background-color: #e9f1f7;
+  border-left: 6px solid #3282b8;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 4px;
 }
 
 .ingredients li {
-  margin-bottom: 8px;
-}
-
-/* Przelicznik masy */
-
-.mass-control {
-  margin-top: 15px;
-  font-size: 0.95rem;
-  font-family: 'Roboto', sans-serif;
-  color: #5c3a21;
-}
-
-.mass-control label {
-  font-weight: 700;
-  margin-right: 8px;
-}
-
-.mass-control input {
-  width: 70px;
-  padding: 5px;
+  margin-bottom: 0.5rem;
   font-size: 1rem;
-  border: 1px solid #d18a56;
-  border-radius: 6px;
-  text-align: center;
 }
 
-/* Przycisk scroll to top */
+.qty {
+  font-weight: 700;
+  color: #3282b8;
+  margin-right: 0.3rem;
+}
 
-#toTopBtn {
+.weight-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #1b263b;
+}
+
+.weight-input {
+  width: 100px;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #3282b8;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  outline-offset: 2px;
+}
+
+.weight-input:focus {
+  border-color: #ffd166;
+  box-shadow: 0 0 4px #ffd166;
+}
+
+.instructions p {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.3rem;
+}
+
+/* Scroll to top button */
+#scroll-top {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: #d18a56;
+  bottom: 30px;
+  right: 30px;
+  background-color: #3282b8;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(27, 38, 59, 0.3);
+  transition: background-color 0.3s ease;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
-#toTopBtn:hover {
-  opacity: 1;
+#scroll-top:hover,
+#scroll-top:focus {
+  background-color: #1b263b;
+  outline: none;
 }
 
 /* Responsywność */
-
 @media (max-width: 600px) {
-  #menu ul {
+  #recipe-nav ul {
     flex-direction: column;
-    align-items: center;
+    gap: 1rem;
+  }
+  
+  .weight-input {
+    width: 80px;
   }
 
-  #menu ul li a {
-    font-size: 1.1rem;
-    padding: 10px 14px;
-  }
-
-  main#content {
-    margin: 20px 15px 50px;
-  }
-
-  .recipe {
-    padding: 15px;
+  #scroll-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+    bottom: 20px;
+    right: 20px;
   }
 }

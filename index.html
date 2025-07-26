@@ -1,27 +1,93 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Przepisy kulinarne</title>
-<link rel="stylesheet" href="style/styl.css" />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Przepisy Kulinarne</title>
+  <link rel="stylesheet" href="style/styl.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Nowoczesne fonty: Montserrat dla nagłówków i Open Sans dla tekstu -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
 </head>
 <body>
 
 <header>
-  <nav id="menu">
-    <ul id="recipe-list">
-      <!-- JS doda listę przepisów tutaj -->
+  <nav id="recipe-nav">
+    <ul>
+      <li><a href="#recipe1">Spaghetti Carbonara</a></li>
+      <li><a href="#recipe2">Sałatka Grecka</a></li>
+      <li><a href="#recipe3">Naleśniki z Owocami</a></li>
     </ul>
   </nav>
 </header>
 
-<main id="content">
-  <!-- JS wstawi przepisy tutaj -->
+<main>
+  <section id="recipe1" class="recipe">
+    <h2>Spaghetti Carbonara</h2>
+    <div class="ingredients-container">
+      <h3>Składniki (na 500 g):</h3>
+      <ul class="ingredients" data-base-weight="500">
+        <li><span class="qty">200</span> g spaghetti</li>
+        <li><span class="qty">100</span> g boczku</li>
+        <li><span class="qty">2</span> jajka</li>
+        <li><span class="qty">50</span> g sera parmezan</li>
+        <li>pieprz i sól do smaku</li>
+      </ul>
+      <label for="weight1" class="weight-label">Waga [g]:</label>
+      <input type="number" min="1" id="weight1" class="weight-input" value="500" />
+    </div>
+    <div class="instructions">
+      <h3>Instrukcje:</h3>
+      <p>Ugotuj spaghetti al dente. Podsmaż boczek, wymieszaj z jajkami i serem. Połącz z makaronem i dopraw pieprzem.</p>
+    </div>
+  </section>
+
+  <section id="recipe2" class="recipe">
+    <h2>Sałatka Grecka</h2>
+    <div class="ingredients-container">
+      <h3>Składniki (na 500 g):</h3>
+      <ul class="ingredients" data-base-weight="500">
+        <li><span class="qty">200</span> g pomidorów</li>
+        <li><span class="qty">100</span> g ogórka</li>
+        <li><span class="qty">50</span> g sera feta</li>
+        <li><span class="qty">50</span> g oliwek</li>
+        <li><span class="qty">30</span> g cebuli</li>
+        <li>oliwa, oregano, sól, pieprz</li>
+      </ul>
+      <label for="weight2" class="weight-label">Waga [g]:</label>
+      <input type="number" min="1" id="weight2" class="weight-input" value="500" />
+    </div>
+    <div class="instructions">
+      <h3>Instrukcje:</h3>
+      <p>Pokrój warzywa, wymieszaj z oliwą i przyprawami. Dodaj ser feta i oliwki.</p>
+    </div>
+  </section>
+
+  <section id="recipe3" class="recipe">
+    <h2>Naleśniki z Owocami</h2>
+    <div class="ingredients-container">
+      <h3>Składniki (na 500 g):</h3>
+      <ul class="ingredients" data-base-weight="500">
+        <li><span class="qty">250</span> g mąki</li>
+        <li><span class="qty">300</span> ml mleka</li>
+        <li><span class="qty">2</span> jajka</li>
+        <li><span class="qty">150</span> g owoców sezonowych</li>
+        <li>cukier, olej do smażenia</li>
+      </ul>
+      <label for="weight3" class="weight-label">Waga [g]:</label>
+      <input type="number" min="1" id="weight3" class="weight-input" value="500" />
+    </div>
+    <div class="instructions">
+      <h3>Instrukcje:</h3>
+      <p>Wymieszaj składniki na ciasto, usmaż naleśniki, podawaj z owocami i cukrem.</p>
+    </div>
+  </section>
 </main>
 
-<button id="toTopBtn" title="Do góry">↑</button>
+<button id="scroll-top" title="Wróć do góry" aria-label="Scroll to top">
+  &#8679;
+</button>
 
 <script src="js/script.js"></script>
 </body>
