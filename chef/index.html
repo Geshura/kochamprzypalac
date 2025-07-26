@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔥 Przepisy Szefa Kuchni</title>
+  <link rel="stylesheet" href="style/styl.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="0d2dc934-d8de-4747-aa3e-97b0a8d27490.png" alt="Banner" class="banner" />
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#przepis1">🥩 Grillowany Kurczak</a></li>
+        <li><a href="#przepis2">🌶 Pikantne Kiełbaski</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="przepis1" class="przepis">
+      <h2>Grillowany Kurczak</h2>
+      <label for="waga1">Podaj wagę dania (g):</label>
+      <input type="number" id="waga1" data-referencja="500" value="500"> g
+      <ul class="skladniki" data-id="1">
+        <li data-ilosc="500">500 g piersi z kurczaka</li>
+        <li data-ilosc="30">30 g oliwy z oliwek</li>
+        <li data-ilosc="5">5 g papryki wędzonej</li>
+      </ul>
+    </section>
+
+    <section id="przepis2" class="przepis">
+      <h2>Pikantne Kiełbaski</h2>
+      <label for="waga2">Podaj wagę dania (g):</label>
+      <input type="number" id="waga2" data-referencja="500" value="500"> g
+      <ul class="skladniki" data-id="2">
+        <li data-ilosc="400">400 g kiełbasy</li>
+        <li data-ilosc="20">20 g musztardy</li>
+        <li data-ilosc="10">10 g miodu</li>
+      </ul>
+    </section>
+  </main>
+
+  <button id="gora">⮝</button>
+  <script src="js/script.js"></script>
+</body>
+</html>
