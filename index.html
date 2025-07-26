@@ -4,104 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Przepisy kulinarne</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style/styl.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <nav id="navbar">
-      <ul>
-        <li><a href="#recipe1">Spaghetti Carbonara</a></li>
-        <li><a href="#recipe2">Sałatka grecka</a></li>
-        <li><a href="#recipe3">Placki ziemniaczane</a></li>
+
+<header>
+  <nav>
+    <ul class="recipe-nav">
+      <li><a href="#kurczak-jogurtowy">Kurczak jogurtowy</a></li>
+      <li><a href="#szaszlyk">Szaszłyk</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section id="kurczak-jogurtowy" class="recipe">
+    <h2>Kurczak jogurtowy idealny na grilla (fit)</h2>
+    
+    <div class="image-slider">
+      <img src="https://befitbestrong.pl/wp-content/uploads/2023/05/kurczak-jogurtowy-na-grilla-3.jpg" alt="Kurczak jogurtowy 1" class="active" />
+      <img src="https://befitbestrong.pl/wp-content/uploads/2023/05/kurczak-jogurtowy-na-grilla-4.jpg" alt="Kurczak jogurtowy 2" />
+      <img src="https://befitbestrong.pl/wp-content/uploads/2023/05/kurczak-jogurtowy-na-grilla-5.jpg" alt="Kurczak jogurtowy 3" />
+    </div>
+    
+    <div class="ingredients-wrapper">
+      <label for="weight-kurczak">Waga mięsa (g):</label>
+      <input type="number" id="weight-kurczak" class="weight-input" value="500" min="100" step="50" />
+      <ul class="ingredients-list" id="ingredients-kurczak">
+        <li data-amount="500">500 g piersi z kurczaka</li>
+        <li data-amount="150">150 g jogurtu naturalnego (bez cukru)</li>
+        <li data-amount="1">1 łyżka oliwy z oliwek</li>
+        <li data-amount="2">2 ząbki czosnku</li>
+        <li data-amount="1">1 łyżeczka przyprawy do kurczaka</li>
+        <li data-amount="0.5">0.5 łyżeczki soli</li>
+        <li data-amount="0.25">0.25 łyżeczki pieprzu</li>
+        <li data-amount="0.5">0.5 łyżeczki papryki słodkiej</li>
       </ul>
-    </nav>
-  </header>
+    </div>
+    
+    <div class="instructions">
+      Marynujemy kurczaka w jogurcie z przyprawami przez minimum 2 godziny lub najlepiej całą noc. Następnie grillujemy na średnim ogniu około 10-15 minut, aż mięso będzie soczyste i dobrze przypieczone. Podajemy z ulubionymi warzywami lub sałatką.
+    </div>
+  </section>
 
-  <main>
-    <!-- Przepis 1 -->
-    <section class="recipe" id="recipe1">
-      <h2>Spaghetti Carbonara</h2>
+  <section id="szaszlyk" class="recipe">
+    <h2>Szaszłyk</h2>
+    
+    <div class="image-slider">
+      <img src="https://aniagotuje.pl/images/przepis/szaszlyk.jpg" alt="Szaszłyk 1" class="active" />
+    </div>
+    
+    <div class="ingredients-wrapper">
+      <label for="weight-szaszlyk">Waga mięsa (g):</label>
+      <input type="number" id="weight-szaszlyk" class="weight-input" value="500" min="100" step="50" />
+      <ul class="ingredients-list" id="ingredients-szaszlyk">
+        <li data-amount="500">500 g mięsa (np. wieprzowina lub kurczak)</li>
+        <li data-amount="1">1 cebula</li>
+        <li data-amount="1">1 papryka czerwona</li>
+        <li data-amount="1">1 cukinia</li>
+        <li data-amount="2">2 łyżki oleju roślinnego</li>
+        <li data-amount="1">1 łyżeczka przyprawy do grilla</li>
+        <li data-amount="0.5">0.5 łyżeczki soli</li>
+        <li data-amount="0.25">0.25 łyżeczki pieprzu</li>
+      </ul>
+    </div>
+    
+    <div class="instructions">
+      Mięso kroimy w kostkę, mieszamy z olejem i przyprawami, odstawiamy na minimum 1 godzinę. Cebulę, paprykę i cukinię kroimy na kawałki. Nadziewamy mięso i warzywa na patyczki do szaszłyków. Grillujemy na średnim ogniu około 15 minut, często obracając, aż będą rumiane i miękkie.
+    </div>
+  </section>
 
-      <div class="image-slider">
-        <img src="images/carbonara1.jpg" alt="Spaghetti Carbonara 1" class="active" />
-        <img src="images/carbonara2.jpg" alt="Spaghetti Carbonara 2" />
-        <img src="images/carbonara3.jpg" alt="Spaghetti Carbonara 3" />
-      </div>
+</main>
 
-      <div class="ingredients-wrapper">
-        <ul class="ingredients-list" data-base-weight="500">
-          <li data-amount="200" data-unit="g">Makaron spaghetti – 200 g</li>
-          <li data-amount="100" data-unit="g">Boczek wędzony – 100 g</li>
-          <li data-amount="2" data-unit="szt">Jajka – 2 szt</li>
-          <li data-amount="50" data-unit="g">Parmezan – 50 g</li>
-          <li data-amount="1" data-unit="ząb">Czosnek – 1 ząb</li>
-          <li data-amount="do smaku" data-unit="">Sól i pieprz – do smaku</li>
-        </ul>
-        <label for="weight1" class="weight-label">Waga (g): </label>
-        <input type="number" id="weight1" class="weight-input" value="500" min="1" />
-      </div>
+<button id="scrollTopBtn" title="Scroll to top">↑</button>
 
-      <div class="instructions">
-        <p>Ugotuj makaron al dente. Podsmaż boczek z czosnkiem. W misce wymieszaj jajka z parmezanem. Połącz składniki i dopraw solą oraz pieprzem.</p>
-      </div>
-    </section>
-
-    <!-- Przepis 2 -->
-    <section class="recipe" id="recipe2">
-      <h2>Sałatka grecka</h2>
-
-      <div class="image-slider">
-        <img src="images/salatka1.jpg" alt="Sałatka grecka 1" class="active" />
-        <img src="images/salatka2.jpg" alt="Sałatka grecka 2" />
-      </div>
-
-      <div class="ingredients-wrapper">
-        <ul class="ingredients-list" data-base-weight="500">
-          <li data-amount="200" data-unit="g">Pomidor – 200 g</li>
-          <li data-amount="150" data-unit="g">Ogórek – 150 g</li>
-          <li data-amount="100" data-unit="g">Ser feta – 100 g</li>
-          <li data-amount="50" data-unit="g">Czerwona cebula – 50 g</li>
-          <li data-amount="30" data-unit="ml">Oliwa z oliwek – 30 ml</li>
-          <li data-amount="do smaku" data-unit="">Sól, pieprz, oregano – do smaku</li>
-        </ul>
-        <label for="weight2" class="weight-label">Waga (g): </label>
-        <input type="number" id="weight2" class="weight-input" value="500" min="1" />
-      </div>
-
-      <div class="instructions">
-        <p>Pokrój warzywa i fetę. Połącz w misce. Polej oliwą, dopraw solą, pieprzem i oregano.</p>
-      </div>
-    </section>
-
-    <!-- Przepis 3 -->
-    <section class="recipe" id="recipe3">
-      <h2>Placki ziemniaczane</h2>
-
-      <div class="image-slider">
-        <img src="images/placki1.jpg" alt="Placki ziemniaczane 1" class="active" />
-      </div>
-
-      <div class="ingredients-wrapper">
-        <ul class="ingredients-list" data-base-weight="500">
-          <li data-amount="400" data-unit="g">Ziemniaki – 400 g</li>
-          <li data-amount="1" data-unit="szt">Jajko – 1 szt</li>
-          <li data-amount="50" data-unit="g">Mąka – 50 g</li>
-          <li data-amount="do smaku" data-unit="">Sól i pieprz – do smaku</li>
-          <li data-amount="do smażenia" data-unit="">Olej – do smażenia</li>
-        </ul>
-        <label for="weight3" class="weight-label">Waga (g): </label>
-        <input type="number" id="weight3" class="weight-input" value="500" min="1" />
-      </div>
-
-      <div class="instructions">
-        <p>Zetrzyj ziemniaki, wymieszaj z jajkiem, mąką i przyprawami. Smaż na złoty kolor z obu stron.</p>
-      </div>
-    </section>
-  </main>
-
-  <button id="scrollToTop" class="scroll-to-top" aria-label="Przewiń na górę">⬆</button>
-
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
