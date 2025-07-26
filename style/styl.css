@@ -1,102 +1,120 @@
-:root {
-  --main-bg: #1a1a1a;
-  --accent: #ff4d00;
-  --text: #ffffff;
-  --font-title: 'Anton', sans-serif;
-  --font-body: 'Roboto', sans-serif;
-}
-
 body {
   margin: 0;
-  font-family: var(--font-body);
-  background-color: var(--main-bg);
-  color: var(--text);
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(180deg, #1c1c1c, #2b0000);
+  color: #f0f0f0;
 }
 
 header {
-  background-color: #000;
+  position: relative;
   text-align: center;
+  background-color: #111;
 }
 
 .banner {
   width: 100%;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: cover;
 }
 
-nav ul {
+nav {
+  background: #330000;
+  padding: 10px 0;
+}
+
+.nav-list {
   list-style: none;
   display: flex;
   justify-content: center;
-  background: #111;
+  gap: 30px;
   margin: 0;
-  padding: 10px 0;
-  flex-wrap: wrap;
+  padding: 0;
 }
 
-nav ul li {
-  margin: 0 20px;
-}
-
-nav ul a {
-  text-decoration: none;
-  color: var(--accent);
+.nav-list a {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
   font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
 }
 
-.recipe {
-  padding: 40px 20px;
-  border-bottom: 1px solid #333;
+.nav-list a:hover {
+  transform: scale(1.1);
+  color: #ff6666;
 }
 
-.recipe h2 {
-  font-family: var(--font-title);
-  font-size: 2em;
-  margin-bottom: 10px;
-  color: var(--accent);
+main {
+  padding: 20px;
 }
 
-.ingredients {
-  list-style: none;
-  padding-left: 0;
-  font-size: 1.1em;
+.przepis {
+  margin-bottom: 60px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(255, 80, 80, 0.3);
+  animation: fadeIn 1s ease forwards;
 }
 
-.ingredients li {
-  margin-bottom: 5px;
-}
-
-label {
-  display: block;
-  margin: 10px 0 20px;
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #ffa07a;
 }
 
 input[type="number"] {
-  padding: 5px;
-  font-size: 1em;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: #222;
+  color: #fff;
   width: 100px;
 }
 
-#to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--accent);
-  border: none;
-  padding: 10px 14px;
-  font-size: 1.4em;
-  border-radius: 50%;
-  cursor: pointer;
-  color: #fff;
+ul.skladniki {
+  list-style: none;
+  padding-left: 0;
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
+ul.skladniki li {
+  padding: 6px 0;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
 
-  .recipe h2 {
-    font-size: 1.5em;
+ul.skladniki li:hover {
+  transform: translateX(10px);
+  color: #ffd700;
+}
+
+#gora {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 50%;
+  background: #ff3c3c;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  transition: background 0.3s ease;
+}
+
+#gora:hover {
+  background: #ff0000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
