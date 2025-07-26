@@ -1,61 +1,78 @@
-// Po załadowaniu DOM
 document.addEventListener('DOMContentLoaded', () => {
-  const weightInputs = document.querySelectorAll('.weight-input');
-  const scrollTopBtn = document.getElementById('scroll-top');
+  // Funkcja przeliczająca składniki na podstawie nowej wagi
+  function updateIngredients(ingredientsList, newWeight) {
+    const baseWeight = Number(ingredientsList.dataset.baseWeight);
+    if (!baseWeight || baseWeight === 0) return;
 
-  // Funkcja przeliczająca składniki
-  function recalcIngredients(input) {
-    const container = input.closest('.ingredients-container');
-    const baseWeight = parseFloat(container.querySelector('.ingredients').dataset.baseWeight);
-    const newWeight = parseFloat(input.value);
+    const factor = newWeight / baseWeight;
 
-    if (isNaN(newWeight) || newWeight <= 0) return;
+    ingredientsList.querySelectorAll('li').forEach(li => {
+      const baseAmount = Number(li.dataset.amount);
+      const unit = li.dataset.unit || '';
+      if (isNaN(baseAmount)) return;
 
-    const ratio = newWeight / baseWeight;
+      let adjustedAmount = baseAmount * factor;
 
-    const qtyElements = container.querySelectorAll('.qty');
-    qtyElements.forEach(qtyEl => {
-      const baseQty = parseFloat(qtyEl.textContent);
-      if (!isNaN(baseQty)) {
-        // Zaokrąglamy do 1 miejsca po przecinku, jeśli ułamek
-        let newQty = baseQty * ratio;
-        if (!Number.isInteger(newQty)) {
-          newQty = newQty.toFixed(1);
-        }
-        qtyEl.textContent = newQty;
+      // Zaokrąglanie liczb - jeśli to liczba całkowita, nie pokazuj miejsc po przecinku
+      if (adjustedAmount % 1 === 0) {
+        adjustedAmount = adjustedAmount.toFixed(0);
+      } else {
+        adjustedAmount = adjustedAmount.toFixed(2);
       }
+
+      // Przykładowy tekst do wyświetlenia:
+      // Nazwa składnika jest już w li, więc zamieniamy tylko ilość
+      // załóżmy, że w li jest np.: "Makaron – 200 g"
+      // Więc rozbijamy tekst po " – " i zmieniamy liczbę + jednostkę
+
+      // Możemy zrobić prostsze podejście: pokazujemy tylko "Ilość jednostka"
+      // ale by zachować nazwę, zrobimy regex.
+
+      // Załóżmy tekst: "Makaron – 200 g"
+      // Zamienimy część "200 g" na "adjustedAmount unit"
+
+      const originalText = li.textContent;
+
+      // RegEx do znalezienia ilości i jednostki na końcu tekstu
+      const replacedText = originalText.replace(/[\d.,]+ ?\w*$/g, `${adjustedAmount} ${unit}`.trim());
+
+      li.textContent = replacedText;
     });
   }
 
-  // Podłączamy event listener do każdego inputu wagi
+  // Obsługa inputów wagi
+  const weightInputs = document.querySelectorAll('.weight-input');
   weightInputs.forEach(input => {
-    input.addEventListener('input', () => recalcIngredients(input));
+    const ingredientsList = input.closest('.ingredients-wrapper').querySelector('.ingredients-list');
+
+    input.addEventListener('input', () => {
+      let val = Number(input.value);
+      if (isNaN(val) || val <= 0) {
+        val = Number(ingredientsList.dataset.baseWeight);
+        input.value = val;
+      }
+      updateIngredients(ingredientsList, val);
+    });
+
+    // Inicjalne wywołanie, by upewnić się że składniki są na start poprawne
+    updateIngredients(ingredientsList, Number(input.value));
   });
 
-  // Scroll to top: pokazuj/przycinaj przycisk
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      scrollTopBtn.style.display = 'flex';
-    } else {
-      scrollTopBtn.style.display = 'none';
-    }
-  });
-
-  // Obsługa kliknięcia przycisku scroll to top
-  scrollTopBtn.addEventListener('click', () => {
+  // Scroll to top
+  const scrollBtn = document.getElementById('scrollToTop');
+  scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Smooth scroll dla linków nawigacji
-  const navLinks = document.querySelectorAll('#recipe-nav a[href^="#"]');
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+  // Opcjonalnie: pokaż przycisk tylko gdy przewinięto trochę
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      scrollBtn.style.display = 'block';
+    } else {
+      scrollBtn.style.display = 'none';
+    }
   });
+
+  // Ukryj przycisk na start
+  scrollBtn.style.display = 'none';
 });

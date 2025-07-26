@@ -3,92 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Przepisy Kulinarne</title>
+  <title>Przepisy kulinarne - Dark Mode</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="style/styl.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Nowoczesne fonty: Montserrat dla nagłówków i Open Sans dla tekstu -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<header>
-  <nav id="recipe-nav">
-    <ul>
-      <li><a href="#recipe1">Spaghetti Carbonara</a></li>
-      <li><a href="#recipe2">Sałatka Grecka</a></li>
-      <li><a href="#recipe3">Naleśniki z Owocami</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <section id="recipe1" class="recipe">
-    <h2>Spaghetti Carbonara</h2>
-    <div class="ingredients-container">
-      <h3>Składniki (na 500 g):</h3>
-      <ul class="ingredients" data-base-weight="500">
-        <li><span class="qty">200</span> g spaghetti</li>
-        <li><span class="qty">100</span> g boczku</li>
-        <li><span class="qty">2</span> jajka</li>
-        <li><span class="qty">50</span> g sera parmezan</li>
-        <li>pieprz i sól do smaku</li>
+  <header>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#przepis1">Makaron z pesto</a></li>
+        <li><a href="#przepis2">Sałatka grecka</a></li>
+        <li><a href="#przepis3">Zupa krem z dyni</a></li>
       </ul>
-      <label for="weight1" class="weight-label">Waga [g]:</label>
-      <input type="number" min="1" id="weight1" class="weight-input" value="500" />
-    </div>
-    <div class="instructions">
-      <h3>Instrukcje:</h3>
-      <p>Ugotuj spaghetti al dente. Podsmaż boczek, wymieszaj z jajkami i serem. Połącz z makaronem i dopraw pieprzem.</p>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <section id="recipe2" class="recipe">
-    <h2>Sałatka Grecka</h2>
-    <div class="ingredients-container">
-      <h3>Składniki (na 500 g):</h3>
-      <ul class="ingredients" data-base-weight="500">
-        <li><span class="qty">200</span> g pomidorów</li>
-        <li><span class="qty">100</span> g ogórka</li>
-        <li><span class="qty">50</span> g sera feta</li>
-        <li><span class="qty">50</span> g oliwek</li>
-        <li><span class="qty">30</span> g cebuli</li>
-        <li>oliwa, oregano, sól, pieprz</li>
-      </ul>
-      <label for="weight2" class="weight-label">Waga [g]:</label>
-      <input type="number" min="1" id="weight2" class="weight-input" value="500" />
-    </div>
-    <div class="instructions">
-      <h3>Instrukcje:</h3>
-      <p>Pokrój warzywa, wymieszaj z oliwą i przyprawami. Dodaj ser feta i oliwki.</p>
-    </div>
-  </section>
+  <main>
+    <!-- Przepis 1 -->
+    <section id="przepis1" class="recipe">
+      <h2>Makaron z pesto</h2>
+      <div class="ingredients-wrapper">
+        <h3>Składniki:</h3>
+        <ul class="ingredients-list" data-base-weight="500">
+          <li data-amount="200" data-unit="g">Makaron – 200 g</li>
+          <li data-amount="100" data-unit="g">Bazylia świeża – 100 g</li>
+          <li data-amount="50" data-unit="g">Parmezan – 50 g</li>
+          <li data-amount="30" data-unit="g">Orzeszki piniowe – 30 g</li>
+          <li data-amount="50" data-unit="ml">Oliwa z oliwek – 50 ml</li>
+          <li data-amount="2" data-unit="ząbki">Czosnek – 2 ząbki</li>
+        </ul>
+        <label for="weight-input1">Waga docelowa (g): </label>
+        <input type="number" id="weight-input1" class="weight-input" value="500" min="1" />
+      </div>
+      <div class="instructions">
+        <h3>Instrukcje:</h3>
+        <p>Ugotuj makaron według instrukcji na opakowaniu. Zmiksuj bazylię, parmezan, orzeszki piniowe, oliwę i czosnek na pesto. Wymieszaj z makaronem i podawaj.</p>
+      </div>
+    </section>
 
-  <section id="recipe3" class="recipe">
-    <h2>Naleśniki z Owocami</h2>
-    <div class="ingredients-container">
-      <h3>Składniki (na 500 g):</h3>
-      <ul class="ingredients" data-base-weight="500">
-        <li><span class="qty">250</span> g mąki</li>
-        <li><span class="qty">300</span> ml mleka</li>
-        <li><span class="qty">2</span> jajka</li>
-        <li><span class="qty">150</span> g owoców sezonowych</li>
-        <li>cukier, olej do smażenia</li>
-      </ul>
-      <label for="weight3" class="weight-label">Waga [g]:</label>
-      <input type="number" min="1" id="weight3" class="weight-input" value="500" />
-    </div>
-    <div class="instructions">
-      <h3>Instrukcje:</h3>
-      <p>Wymieszaj składniki na ciasto, usmaż naleśniki, podawaj z owocami i cukrem.</p>
-    </div>
-  </section>
-</main>
+    <!-- Przepis 2 -->
+    <section id="przepis2" class="recipe">
+      <h2>Sałatka grecka</h2>
+      <div class="ingredients-wrapper">
+        <h3>Składniki:</h3>
+        <ul class="ingredients-list" data-base-weight="500">
+          <li data-amount="200" data-unit="g">Pomidor – 200 g</li>
+          <li data-amount="150" data-unit="g">Ogórek – 150 g</li>
+          <li data-amount="100" data-unit="g">Feta – 100 g</li>
+          <li data-amount="50" data-unit="g">Czerwona cebula – 50 g</li>
+          <li data-amount="20" data-unit="ml">Oliwa z oliwek – 20 ml</li>
+          <li data-amount="10" data-unit="g">Oliwki czarne – 10 g</li>
+        </ul>
+        <label for="weight-input2">Waga docelowa (g): </label>
+        <input type="number" id="weight-input2" class="weight-input" value="500" min="1" />
+      </div>
+      <div class="instructions">
+        <h3>Instrukcje:</h3>
+        <p>Pokrój warzywa i fetę, wymieszaj z oliwą i oliwkami. Podawaj schłodzone.</p>
+      </div>
+    </section>
 
-<button id="scroll-top" title="Wróć do góry" aria-label="Scroll to top">
-  &#8679;
-</button>
+    <!-- Przepis 3 -->
+    <section id="przepis3" class="recipe">
+      <h2>Zupa krem z dyni</h2>
+      <div class="ingredients-wrapper">
+        <h3>Składniki:</h3>
+        <ul class="ingredients-list" data-base-weight="500">
+          <li data-amount="400" data-unit="g">Dynia – 400 g</li>
+          <li data-amount="100" data-unit="ml">Bulion warzywny – 100 ml</li>
+          <li data-amount="50" data-unit="ml">Śmietanka 30% – 50 ml</li>
+          <li data-amount="10" data-unit="g">Masło – 10 g</li>
+          <li data-amount="1" data-unit="szczypta">Sól i pieprz – do smaku</li>
+        </ul>
+        <label for="weight-input3">Waga docelowa (g): </label>
+        <input type="number" id="weight-input3" class="weight-input" value="500" min="1" />
+      </div>
+      <div class="instructions">
+        <h3>Instrukcje:</h3>
+        <p>Podsmaż dynię na maśle, zalej bulionem i gotuj do miękkości. Zblenduj, dodaj śmietankę, dopraw solą i pieprzem.</p>
+      </div>
+    </section>
+  </main>
 
-<script src="js/script.js"></script>
+  <button id="scrollToTop" class="scroll-to-top" title="Do góry">⬆</button>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
