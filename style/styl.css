@@ -1,26 +1,34 @@
-/* Reset i podstawy */
+/* --- Import fontów Google --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+
+/* --- Reset i podstawy --- */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-body {
-  background-color: #121212;
-  color: #e0e0e0;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-  padding: 0 15px 50px;
+  box-sizing: border-box;
 }
 
-/* Nawigacja */
-header {
-  background-color: #1f1f1f;
-  padding: 15px 0;
-  position: sticky;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 60px; /* miejsce na navbar */
+}
+
+/* --- Nawigacja --- */
+#navbar {
+  position: fixed;
   top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  left: 0;
+  width: 100%;
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #navbar ul {
@@ -28,13 +36,12 @@ header {
   display: flex;
   justify-content: center;
   gap: 30px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
 }
 
 #navbar ul li a {
   color: #bb86fc;
   text-decoration: none;
+  font-weight: 600;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
@@ -45,43 +52,46 @@ header {
   outline: none;
 }
 
-/* Sekcja przepisu */
+/* --- Przepisy --- */
 .recipe {
-  max-width: 700px;
-  margin: 40px auto;
+  max-width: 800px;
   background-color: #1e1e1e;
-  padding: 25px;
-  border-radius: 8px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
   box-shadow: 0 0 15px #3700b3aa;
 }
 
 .recipe h2 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  color: #bb86fc;
+  font-weight: 700;
+  font-size: 2rem;
   margin-bottom: 15px;
-  text-align: center;
+  color: #bb86fc;
 }
 
-/* Slider obrazów */
+/* --- Slider obrazów --- */
 .image-slider {
   position: relative;
-  height: 220px;
-  margin-bottom: 20px;
-  border-radius: 8px;
+  width: 100%;
+  height: 250px;
+  margin-bottom: 25px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 10px #6200ee;
+  box-shadow: 0 0 15px #6200eeaa;
 }
 
 .image-slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  border-radius: 8px;
+  border-radius: 10px;
+  user-select: none;
 }
 
 .image-slider img.active {
@@ -89,65 +99,128 @@ header {
   position: relative;
 }
 
-/* Lista składników */
+/* --- Składniki --- */
 .ingredients-wrapper {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.ingredients-wrapper label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #bb86fc;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
 }
 
 .ingredients-list {
-  background-color: #292929;
-  border-radius: 6px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
   padding: 15px 20px;
-  list-style-type: square;
-  color: #bb86fc;
-  font-weight: 500;
+  list-style: none;
+  box-shadow: inset 0 0 10px #4a148c;
+  color: #ddd;
   font-size: 1rem;
-  margin-bottom: 10px;
+  line-height: 1.5;
 }
 
-.ingredients-list li {
-  margin-bottom: 8px;
-}
+/* Przechowujemy oryginalne wartości składników w data-atributach na li */
 
-.weight-label {
-  color: #aaa;
-  font-size: 0.9rem;
-  margin-right: 8px;
-}
-
+/* --- Pole wagi --- */
 .weight-input {
-  width: 100px;
-  padding: 6px 10px;
+  margin-top: 12px;
+  background-color: #1e1e1e;
+  border: 2px solid #bb86fc;
   border-radius: 6px;
-  border: 1px solid #555;
-  background-color: #1f1f1f;
+  padding: 8px 12px;
+  width: 100px;
   color: #e0e0e0;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 
 .weight-input:focus {
   outline: none;
-  border-color: #bb86fc;
+  border-color: #3700b3;
+  background-color: #2a2a2a;
 }
 
-/* Instrukcje */
-.instructions p {
+/* --- Instrukcje --- */
+.instructions {
   font-size: 1rem;
   color: #ccc;
+  background-color: #222;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: inset 0 0 10px #3700b3aa;
+  white-space: pre-wrap;
   line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Scroll to top */
+/* --- Scroll to top button --- */
 .scroll-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #3700b3;
-  color: #e0e0e0;
-  border: none;
+  width: 44px;
+  height: 44px;
+  background-color: #6200ee;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 24px;
-  cursor
+  box-shadow: 0 4px 12px #3700b3bb;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  z-index: 1100;
+  border: none;
+}
+
+.scroll-to-top:hover,
+.scroll-to-top:focus {
+  background-color: #3700b3;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Strzałka w przycisku */
+.scroll-to-top svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  fill: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Responsywność --- */
+@media (max-width: 768px) {
+  #navbar ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .recipe {
+    margin: 25px 15px;
+    padding: 25px 15px;
+  }
+
+  .weight-input {
+    width: 80px;
+  }
+
+  .image-slider {
+    height: 180px;
+  }
+}
+
+@media (max-width: 400px) {
+  .weight-input {
+    width: 70px;
+    font-size: 0.9rem;
+  }
+}
