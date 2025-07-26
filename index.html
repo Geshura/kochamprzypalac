@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Przepisy od Szefa Kuchni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style/styl.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/banner.png" alt="Szef Kuchni" class="banner" />
+    <nav>
+      <ul>
+        <li><a href="#burger">🔥 Burger z Grilla</a></li>
+        <li><a href="#karkowka">🔥 Karkówka BBQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="burger" class="recipe">
+      <h2>Burger z Grilla</h2>
+      <label>Ilość mięsa (g): 
+        <input type="number" min="100" value="500" class="input-grams" data-base="500" data-target="burger">
+      </label>
+      <ul class="ingredients" data-id="burger">
+        <li data-qty="500">500g mielonej wołowiny</li>
+        <li data-qty="2">2 bułki</li>
+        <li data-qty="50">50g sera</li>
+        <li data-qty="20">20g cebuli</li>
+      </ul>
+    </section>
+
+    <section id="karkowka" class="recipe">
+      <h2>Karkówka BBQ</h2>
+      <label>Ilość mięsa (g): 
+        <input type="number" min="100" value="500" class="input-grams" data-base="500" data-target="karkowka">
+      </label>
+      <ul class="ingredients" data-id="karkowka">
+        <li data-qty="500">500g karkówki</li>
+        <li data-qty="50">50g sosu BBQ</li>
+        <li data-qty="10">10g czosnku</li>
+        <li data-qty="30">30g cebuli</li>
+      </ul>
+    </section>
+  </main>
+
+  <button id="to-top">🔝</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
