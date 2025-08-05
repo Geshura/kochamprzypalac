@@ -17,7 +17,7 @@
 </ul>
 </nav>
 </header>
-<main><section class="hero-chef"><img alt="Kucharz w ogniu" src="assets/banner.png"/><h1>Witamy w piekielnej kuchni!</h1></section>
+<main>
 <section class="recipe" id="kurczak-jogurtowy">
 <h2>Kurczak jogurtowy idealny na grilla (fit)</h2>
 <div class="image-slider" data-slider-id="kurczak-jogurtowy">
@@ -139,5 +139,33 @@
 </main>
 <button id="scrollTopBtn" title="Przesuń do góry">↑</button>
 <script src="js/script.js"></script>
+
+<div class="modal" id="chefModal">
+<div class="modal-content">
+<span class="close-btn">×</span>
+<img alt="Kucharz w ogniu" src="5244aaa5-bbed-40bd-97f4-750ba71e39e9.png"/>
+<h2>Witamy w piekielnej kuchni!</h2>
+</div>
+</div>
+<script>
+  const modal = document.getElementById("chefModal");
+  const closeBtn = document.querySelector(".close-btn");
+
+  window.onload = () => {
+    setTimeout(() => {
+      modal.style.display = "block";
+    }, 1000); // 1 sekunda po załadowaniu
+  };
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
 </body>
 </html>
